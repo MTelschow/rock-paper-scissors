@@ -11,4 +11,8 @@ function computerPlay(){
     }
 }
 
-
+function capitalize(input){
+    input
+    output = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
+    console.log(output);
+}
