@@ -11,8 +11,17 @@ function computerPlay(){
     }
 }
 
-function capitalize(input){
-    input
-    output = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
-    console.log(output);
+function playerChoice(){
+    let choice = capitalize(prompt("What do you play?"));
+    
 }
+
+function capitalize(string){
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
+
+function round(playerSelection, computerSelection){
+
+}
+
+playerChoice();
