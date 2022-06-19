@@ -14,7 +14,7 @@ function computerPlay(){
 function playerChoice(){
     let choice = capitalize(prompt("What do you play?"));
     while (!verifyChoice(choice)){
-        choice = capitalize(prompt("Error! Enter a valid choice:"));
+        choice = capitalize(prompt("Invalid Weapon! Enter a valid one:"));
     }
     return choice;
 }
@@ -45,3 +45,29 @@ function playRound(playerSelection, computerSelection){
         return `You Lost! ${computerSelection} beats ${playerSelection}`
     }
 }
+
+function game(){
+    let gamesWon = 0;
+    let gamesLost = 0;
+
+    while ((gamesWon<3) && (gamesLost<3)){
+        result = playRound(playerChoice(), computerPlay());
+        if (result.includes("Won")){
+            gamesWon++;
+        }
+        if (result.includes("Lost")){
+            gamesLost++;
+        }
+        console.log(`${result} \nWon: ${gamesWon}\nLost: ${gamesLost}`);
+    }
+
+    if (gamesWon == 3){
+        console.log("You Win The Game!")
+    }
+    if (gamesLost == 3){
+        console.log("You Lost The Game!")
+    }
+} 
+
+game();
+
