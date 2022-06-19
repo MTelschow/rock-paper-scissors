@@ -30,7 +30,7 @@ function verifyChoice(String){
     return a||b||c; 
 }
 
-function round(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){
     const weapons = ["Rock","Paper","Scissors"];
     let score =  (weapons.indexOf(playerSelection) - weapons.indexOf(computerSelection)+3)%3;
     if (score == 0){
@@ -45,4 +45,3 @@ function round(playerSelection, computerSelection){
         return `You Lost! ${computerSelection} beats ${playerSelection}`
     }
 }
-console.log(round("Scissors","Paper"));
