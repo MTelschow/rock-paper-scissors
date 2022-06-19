@@ -31,6 +31,18 @@ function verifyChoice(String){
 }
 
 function round(playerSelection, computerSelection){
+    const weapons = ["Rock","Paper","Scissors"];
+    let score =  (weapons.indexOf(playerSelection) - weapons.indexOf(computerSelection)+3)%3;
+    if (score == 0){
+        return `It's a Tie! Both picked ${playerSelection}`
+    }
 
+    if (score == 1){
+        return `You Won! ${playerSelection} beats ${computerSelection}`
+    }
+
+    if (score == 2){
+        return `You Lost! ${computerSelection} beats ${playerSelection}`
+    }
 }
-
+console.log(round("Scissors","Paper"));
