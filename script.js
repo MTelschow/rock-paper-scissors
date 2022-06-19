@@ -20,6 +20,13 @@ function capitalize(string){
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
+function verifyChoice(String){
+    let a = (String == "Rock");
+    let b = (String == "Paper");
+    let c = (String == "Scissors");
+    return a||b||c; 
+}
+
 function round(playerSelection, computerSelection){
 
 }
