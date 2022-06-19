@@ -13,7 +13,10 @@ function computerPlay(){
 
 function playerChoice(){
     let choice = capitalize(prompt("What do you play?"));
-    
+    while (!verifyChoice(choice)){
+        choice = capitalize(prompt("Error! Enter a valid choice:"));
+    }
+    return choice;
 }
 
 function capitalize(string){
@@ -31,4 +34,3 @@ function round(playerSelection, computerSelection){
 
 }
 
-playerChoice();
