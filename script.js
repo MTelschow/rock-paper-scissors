@@ -1,5 +1,6 @@
 let gamesWon = 0;
 let gamesLost = 0;
+let finished = false;
 
 const message = document.querySelector('.message');
 const results = document.createElement('div');
@@ -11,7 +12,71 @@ const computerScore = document.querySelector('.computerScore');
 playerScore.textContent = gamesWon;
 computerScore.textContent = gamesLost;
 
+const endMessage = document.querySelector('.endMessage');
 
+
+
+
+const btnScissors = document.querySelector('#scissors');
+btnScissors.addEventListener('click', function(){
+    if(!finished){
+        playRound('Scissors', computerPlay());
+    }
+});
+const btnRock = document.querySelector('#rock');
+btnRock.addEventListener('click', function(){
+    if(!finished){
+    playRound('Rock', computerPlay());
+    }
+});
+const btnPaper = document.querySelector('#paper');
+btnPaper.addEventListener('click', function(){
+    if(!finished){
+    playRound('Paper', computerPlay());
+    }
+});
+
+const btnRestart = document.querySelector('#btnRestart');
+btnRestart.addEventListener('click', function(){
+    gamesWon = 0;
+    playerScore.textContent = gamesWon;
+    gamesLost = 0;
+    computerScore.textContent = gamesLost;
+    results.textContent = "";
+    endMessage.textContent = "";
+    finished = false;
+})
+
+
+
+
+function playRound(playerSelection, computerSelection){
+    const weapons = ["Rock","Paper","Scissors"];
+    let score =  (weapons.indexOf(playerSelection) - weapons.indexOf(computerSelection)+3)%3;
+    if (score == 0){
+        results.textContent = `It's a Tie! Both picked ${playerSelection}`
+    }
+
+    if (score == 1){
+        gamesWon++;
+        playerScore.textContent = gamesWon;
+        results.textContent = `You Won The Round! ${playerSelection} beats ${computerSelection}`
+        if(gamesWon == 5){
+            finished = true;
+            endMessage.textContent = "THE VICTORY IS YOURS! CONGRATIULATIONS!"
+        }
+    }
+
+    if (score == 2){
+        gamesLost++;
+        computerScore.textContent = gamesLost;
+        results.textContent = `You Lost The Round! ${computerSelection} beats ${playerSelection}`
+        if(gamesLost == 5){
+            finished = true;
+            endMessage.textContent = "DEAFEAT IS UPON YOU! BETTER LUCK NEXT TIME!"
+        }
+    }
+}
 
 function computerPlay(){
     choice = Math.floor(Math.random()*3);
@@ -26,42 +91,6 @@ function computerPlay(){
     }
 }
 
-function playRound(playerSelection, computerSelection){
-    const weapons = ["Rock","Paper","Scissors"];
-    let score =  (weapons.indexOf(playerSelection) - weapons.indexOf(computerSelection)+3)%3;
-    if (score == 0){
-        return `It's a Tie! Both picked ${playerSelection}`
-    }
-
-    if (score == 1){
-        gamesWon++;
-        playerScore.textContent = gamesWon;
-        return `You Won! ${playerSelection} beats ${computerSelection}`
-    }
-
-    if (score == 2){
-        gamesLost++;
-        computerScore.textContent = gamesLost;
-        return `You Lost! ${computerSelection} beats ${playerSelection}`
-    }
-}
-
-
-
-
-const btnScissors = document.querySelector('#scissors');
-btnScissors.addEventListener('click', function(){
-    let message = playRound('Scissors', computerPlay());
-    results.textContent = message;
-});
-const btnRock = document.querySelector('#rock');
-btnRock.addEventListener('click', function(){
-    results.textContent = playRound('Rock', computerPlay());
-});
-const btnPaper = document.querySelector('#paper');
-btnPaper.addEventListener('click', function(){
-    results.textContent = playRound('Paper', computerPlay());
-});
 
 
 
