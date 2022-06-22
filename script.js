@@ -1,3 +1,18 @@
+let gamesWon = 0;
+let gamesLost = 0;
+
+const message = document.querySelector('.message');
+const results = document.createElement('div');
+results.classList.add('results');
+// results.textContent = 'The result are shown here';
+message.appendChild(results);
+const playerScore = document.querySelector('.playerScore');
+const computerScore = document.querySelector('.computerScore');
+playerScore.textContent = gamesWon;
+computerScore.textContent = gamesLost;
+
+
+
 function computerPlay(){
     choice = Math.floor(Math.random()*3);
     if(choice == 0){
@@ -11,8 +26,6 @@ function computerPlay(){
     }
 }
 
-
-
 function playRound(playerSelection, computerSelection){
     const weapons = ["Rock","Paper","Scissors"];
     let score =  (weapons.indexOf(playerSelection) - weapons.indexOf(computerSelection)+3)%3;
@@ -21,15 +34,37 @@ function playRound(playerSelection, computerSelection){
     }
 
     if (score == 1){
+        gamesWon++;
+        playerScore.textContent = gamesWon;
         return `You Won! ${playerSelection} beats ${computerSelection}`
     }
 
     if (score == 2){
+        gamesLost++;
+        computerScore.textContent = gamesLost;
         return `You Lost! ${computerSelection} beats ${playerSelection}`
     }
 }
 
-const btnRock = document.querySelector
+
+
+
+const btnScissors = document.querySelector('#scissors');
+btnScissors.addEventListener('click', function(){
+    let message = playRound('Scissors', computerPlay());
+    results.textContent = message;
+});
+const btnRock = document.querySelector('#rock');
+btnRock.addEventListener('click', function(){
+    results.textContent = playRound('Rock', computerPlay());
+});
+const btnPaper = document.querySelector('#paper');
+btnPaper.addEventListener('click', function(){
+    results.textContent = playRound('Paper', computerPlay());
+});
+
+
+
 
 
 // function playerChoice(){
