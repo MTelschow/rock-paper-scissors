@@ -11,24 +11,7 @@ function computerPlay(){
     }
 }
 
-function playerChoice(){
-    let choice = capitalize(prompt("What do you play?"));
-    while (!verifyChoice(choice)){
-        choice = capitalize(prompt("Invalid Weapon! Enter a valid one:"));
-    }
-    return choice;
-}
 
-function capitalize(string){
-    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-}
-
-function verifyChoice(String){
-    let a = (String == "Rock");
-    let b = (String == "Paper");
-    let c = (String == "Scissors");
-    return a||b||c; 
-}
 
 function playRound(playerSelection, computerSelection){
     const weapons = ["Rock","Paper","Scissors"];
@@ -46,28 +29,50 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-function game(){
-    let gamesWon = 0;
-    let gamesLost = 0;
+const btnRock = document.querySelector
 
-    while ((gamesWon<3) && (gamesLost<3)){
-        result = playRound(playerChoice(), computerPlay());
-        if (result.includes("Won")){
-            gamesWon++;
-        }
-        if (result.includes("Lost")){
-            gamesLost++;
-        }
-        console.log(`${result} \nWon: ${gamesWon}\nLost: ${gamesLost}`);
-    }
 
-    if (gamesWon == 3){
-        console.log("You Win The Game!")
-    }
-    if (gamesLost == 3){
-        console.log("You Lost The Game!")
-    }
-} 
+// function playerChoice(){
+//     let choice = capitalize(prompt("What do you play?"));
+//     while (!verifyChoice(choice)){
+//         choice = capitalize(prompt("Invalid Weapon! Enter a valid one:"));
+//     }
+//     return choice;
+// }
 
-game();
+// // function capitalize(string){
+// //     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+// }
+
+// function verifyChoice(String){
+//     let a = (String == "Rock");
+//     let b = (String == "Paper");
+//     let c = (String == "Scissors");
+//     return a||b||c; 
+// }
+
+// function game(){
+//     let gamesWon = 0;
+//     let gamesLost = 0;
+
+//     // while ((gamesWon<3) && (gamesLost<3)){
+//         result = playRound(playerChoice(), computerPlay());
+//         if (result.includes("Won")){
+//             gamesWon++;
+//         }
+//         if (result.includes("Lost")){
+//             gamesLost++;
+//         }
+//         console.log(`${result} \nWon: ${gamesWon}\nLost: ${gamesLost}`);
+//     // }
+
+//     if (gamesWon == 3){
+//         console.log("You Win The Game!")
+//     }
+//     if (gamesLost == 3){
+//         console.log("You Lost The Game!")
+//     }
+// } 
+
+// game();
 
