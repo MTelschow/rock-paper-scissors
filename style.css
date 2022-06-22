@@ -16,11 +16,17 @@ body {
     width: 35%;
     text-align: center;
 }
-.buttons button{
-    margin: 10px 20px;
+button{
+    margin: 40px 20px;
+    margin-top: 0px;
     flex :1
 }
 .buttons {
     display: flex;
     justify-content: center;  
+
+}
+
+.hidden {
+    text-indent: -9999px;
 }

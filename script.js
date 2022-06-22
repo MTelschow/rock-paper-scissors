@@ -3,10 +3,9 @@ let gamesLost = 0;
 let finished = false;
 
 const message = document.querySelector('.message');
-const results = document.createElement('div');
-results.classList.add('results');
-// results.textContent = 'The result are shown here';
-message.appendChild(results);
+const results = document.querySelector('.results');
+results.textContent = 'dummy';
+results.classList.add('hidden');
 const playerScore = document.querySelector('.playerScore');
 const computerScore = document.querySelector('.computerScore');
 playerScore.textContent = gamesWon;
@@ -42,7 +41,8 @@ btnRestart.addEventListener('click', function(){
     playerScore.textContent = gamesWon;
     gamesLost = 0;
     computerScore.textContent = gamesLost;
-    results.textContent = "";
+    results.textContent = "dummy";
+    results.classList.add('hidden');
     endMessage.textContent = "";
     finished = false;
 })
@@ -51,6 +51,7 @@ btnRestart.addEventListener('click', function(){
 
 
 function playRound(playerSelection, computerSelection){
+    results.classList.remove('hidden');
     const weapons = ["Rock","Paper","Scissors"];
     let score =  (weapons.indexOf(playerSelection) - weapons.indexOf(computerSelection)+3)%3;
     if (score == 0){
